@@ -58,7 +58,7 @@ export default function OrderForm(props) {
                         <option value="5">5</option>
                         <option value="6">6</option>
                     </select>
-                    <button type="button" className="order-btn" onClick={() => {submitOrder()}}>Order It!</button>
+                    <button type="button" className="order-btn" onClick={() => submitOrder()}>Order It!</button>
                 </form>
             </div>
         </Template>
