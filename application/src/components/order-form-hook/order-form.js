@@ -40,7 +40,7 @@ export default function OrderForm(props) {
                     <label className="form-label">I'd like to order...</label><br />
                     <select 
                         value={orderItem} 
-                        onChange={(e) => {menuItemChosen(e.target)}}
+                        onChange={(e) => menuItemChosen(e.target)}
                         className="menu-select"
                     >
                         <option value="" defaultValue disabled hidden>Lunch menu</option>
