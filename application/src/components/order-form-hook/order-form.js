@@ -16,6 +16,7 @@ export default function OrderForm(props) {
     const auth = useSelector((state) => state.auth);
 
     const submitOrder = () => {
+        console.log(auth)
         if (orderItem === "") return;
         fetch(ADD_ORDER_URL, {
             method: 'POST',
