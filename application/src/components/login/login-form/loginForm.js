@@ -15,9 +15,11 @@ class LoginForm extends Component {
   }
 
   login(e) {
-    e.preventDefault();
-    this.props.commenceLogin(this.state.email, this.state.password);
-    this.props.onLogin();
+    if(this.state.email !== '' && this.state.password !== ''){
+      e.preventDefault();
+      this.props.commenceLogin(this.state.email, this.state.password);
+      this.props.onLogin();
+    }
   }
 
   onChange(key, val) {
