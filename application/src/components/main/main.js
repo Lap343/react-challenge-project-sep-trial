@@ -4,6 +4,7 @@ import './main.css';
 
 
 function Main() {
+
   return (
     <div className="main-body">
       <h1>Luigi's Diner Ordering Application</h1>
