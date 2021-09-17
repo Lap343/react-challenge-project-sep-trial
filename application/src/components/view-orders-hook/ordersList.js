@@ -22,8 +22,8 @@ const OrdersList = (props) => {
                     <p>Quantity: {order.quantity}</p>
                 </div>
                 <div className="col-md-4 view-order-right-col">
-                    <button className="btn btn-success">Edit</button>
-                    <button className="btn btn-danger">Delete</button>
+                    <button className="btn btn-success" onClick={() => console.log("hi")}>Edit</button>
+                    <button className="btn btn-danger" onClick={() => console.log("hi")}>Delete</button>
                 </div>
             </div>
         );
