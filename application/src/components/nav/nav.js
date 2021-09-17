@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { LOGOUT } from "../../redux/actions/types";
 import "./nav.css";
 
-const Nav = (props) => {
+const Nav = () => {
 
     const dispatch = useDispatch();
 
