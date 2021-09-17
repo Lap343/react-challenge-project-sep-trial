@@ -1,8 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { LOGOUT } from "../../redux/actions/types";
 import "./nav.css";
 
 const Nav = (props) => {
+
+    const dispatch = useDispatch()
+
     return (
         <div className="nav-strip">
             <Link to={"/order"} className="nav-link">
@@ -16,7 +21,9 @@ const Nav = (props) => {
                 </div>
             </Link>
             <Link to={"/login"} className="nav-link">
-                <div className="nav-link-style">
+                <div className="nav-link-style" onClick={() => {
+                    dispatch({ type: LOGOUT });
+                }}>
                     <label className="nav-label">Log Out</label>
                 </div>
             </Link>
