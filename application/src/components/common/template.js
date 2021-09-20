@@ -4,7 +4,7 @@ import { Nav } from '../../components';
 import './template.css';
 
 const Template = props => {
-    
+
     const user = useSelector(state => state.auth.email);
 
     return (

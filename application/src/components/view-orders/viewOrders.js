@@ -4,8 +4,9 @@ import { SERVER_IP } from '../../private';
 import OrdersList from './ordersList';
 import './viewOrders.css';
 
-export default function ViewOrders(props) {
+export default function ViewOrders() {
     const [orders, setOrders] = useState([]);
+    const [rerender, setRerender] = useState(false);
 
     useEffect(() => {
         fetch(`${SERVER_IP}/api/current-orders`)
@@ -17,14 +18,13 @@ export default function ViewOrders(props) {
                     console.log('Error getting orders');
                 }
             });
-    }, [])
+        setRerender(false);
+    }, [rerender])
 
     return (
         <Template>
             <div className="container-fluid">
-                <OrdersList
-                    orders={orders}
-                />
+                <OrdersList orders={orders} setRerender={setRerender} />
             </div>
         </Template>
     );
