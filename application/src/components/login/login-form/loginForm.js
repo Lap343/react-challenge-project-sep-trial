@@ -3,10 +3,11 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { loginUser } from '../../../redux/actions/authActions'
 
-const LoginForm = (props) => {
+const LoginForm = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const dispatch = useDispatch();
   let history = useHistory();
 

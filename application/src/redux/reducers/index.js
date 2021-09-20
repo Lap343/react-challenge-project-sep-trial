@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import TempReducer from './tempReducer';
+import editReducer from './editReducer';
 import authReducer from './authReducer';
 
 export default combineReducers({
-  temp: TempReducer,
+  edit: editReducer,
   auth: authReducer,
 });
