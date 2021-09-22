@@ -18,6 +18,8 @@ const Edit = () => {
     const user = useSelector(state => state.auth.email);
     let history = useHistory();
 
+    console.log(editID)
+
     const finalEdit = () => {
         fetch(EDIT_ORDER_URL, {
             method: 'POST',

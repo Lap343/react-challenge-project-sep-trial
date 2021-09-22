@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'; 
 import { useHistory } from 'react-router';
-import { loginUser } from '../../../redux/actions/authActions'
+import { SERVER_IP } from '../../../private';
+import { login } from '../../../redux/features/auth';
 
 const LoginForm = () => {
 
@@ -11,11 +12,25 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   let history = useHistory();
 
-  const login = (e) => {
+  const tryLogin = (e) => {
     if(email !== '' && password !== ''){
       e.preventDefault();
-      dispatch(loginUser(email, password));
-      history.push("/view-orders");
+
+      fetch(`${SERVER_IP}/api/login`, {
+          method: 'POST',
+          body: JSON.stringify({
+              email,
+              password
+          }),
+          headers: {
+              'Content-Type': 'application/json'
+          },
+      }).then(response => response.json())
+      .then(response => {
+          if (response.success) {
+            dispatch(login({ email: response.email, token: response.token }));
+          }
+      }).then(history.push("/view-orders"));
     }
   }
 
@@ -51,7 +66,7 @@ const LoginForm = () => {
         ></input>
       </div>
       <div className="d-flex justify-content-center">
-          <button onClick={e => login(e)} type="submit" className="btn btn-primary">Login</button>
+          <button onClick={e => tryLogin(e)} type="submit" className="btn btn-primary">Login</button>
       </div>
     </form>
   );

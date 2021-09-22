@@ -1,8 +1,8 @@
 import React from 'react';
 import { SERVER_IP } from '../../private';
 import { useDispatch } from 'react-redux';
-import { useHistory } from "react-router-dom";
-import { editOrder } from '../../redux/actions/editActions';
+import { useHistory } from 'react-router-dom';
+import { edit } from '../../redux/features/edit';
 
 const DELETE_ORDER_URL = `${SERVER_IP}/api/delete-order`;
 
@@ -20,9 +20,10 @@ const OrdersList = (props) => {
     );
 
     const sendEditOrder = (id) => {
-        dispatch(editOrder(id));
-        history.push("/edit");
+        dispatch(edit({id}));
+        console.log('before: ', id)
         setRerender(true);
+        history.push("/edit");
     }
 
     const deleteOrder = (id) => {

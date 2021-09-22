@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { LOGOUT } from "../../redux/actions/types";
+import { logout } from '../../redux/features/auth'
 import "./nav.css";
 
 const Nav = () => {
@@ -21,7 +21,7 @@ const Nav = () => {
                 </div> 
             </Link>
             <Link to={"/login"} className="nav-link">
-                <div className="nav-link-style" onClick={() => {dispatch({ type: LOGOUT });}}>
+                <div className="nav-link-style" onClick={ () => dispatch(logout()) }>
                     <label className="nav-label">Log Out</label>
                 </div>
             </Link>
